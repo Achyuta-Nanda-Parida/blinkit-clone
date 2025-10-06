@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-
+const PORT=process.env.PORT||3000;
 const indexRoutes = require('./routes/index');
 const authRoutes = require('./routes/auth');
 const adminRoutes = require("./routes/admin");
@@ -46,4 +46,6 @@ app.use("/cart", cartRoutes);
 app.use("/payment", paymentRoutes);
 app.use("/order", oredrRoutes);
 
-app.listen(3000);
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
